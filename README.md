@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 # springCloudDemo
 
 #### 介绍
 springCloudDemo
+=======
+# meiman_wallet
+
+#### 项目介绍
+美漫钱包
+>>>>>>> Initial commit
 
 #### 软件架构
 软件架构说明
@@ -21,7 +28,11 @@ springCloudDemo
 
 #### 参与贡献
 
+<<<<<<< HEAD
 1. Fork 本仓库
+=======
+1. Fork 本项目
+>>>>>>> Initial commit
 2. 新建 Feat_xxx 分支
 3. 提交代码
 4. 新建 Pull Request
