@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title>123456</title>
 </head>
-<body>
-<img src="img/1.png" />
+<form id="formId" action="/meiman/file/upload" target="frame1" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <input type="button" value="提交" onclick="upload()">
+</form>
+
+<iframe name="frame1" frameborder="0" height="40"></iframe>
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function upload() {
+        $("#formId").submit();
+    }
+</script>
 </body>
 </html>

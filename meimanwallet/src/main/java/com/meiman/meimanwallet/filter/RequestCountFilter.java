@@ -36,7 +36,6 @@ public class RequestCountFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);
         }else{
             System.out.println("ip:"+ip+"访问超限");
-            return;
         }
     }
 
