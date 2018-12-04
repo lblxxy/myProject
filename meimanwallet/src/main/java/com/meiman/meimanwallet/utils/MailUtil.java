@@ -37,8 +37,6 @@ public class MailUtil {
      * @param toMail  收件人
      */
     public static void sendEmail(final String title, final String content, final String toMail) {
-        //todo 由于发送邮件响应较慢，需要用线程池等待，这里需要优化
-
         if (StringUtils.isNotBlank(toMail)) {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom(PropertiesUtils.readProperty("mail.user"));
