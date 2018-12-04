@@ -24,6 +24,10 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
+    servlet:
+        multipart:
+            max-file-size: 3MB
+            max-request-size: 3MB
 mybatis:
     typeAliasesPackage: com.meiman.meimanwallet
     mapperLocations: classpath:mapper/*.xml

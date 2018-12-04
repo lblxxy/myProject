@@ -51,7 +51,7 @@ public class I18nUtils {
                 for (File file : folderFile.listFiles()) {
                     String key = file.getName();
                     languages = ConfigLoader.loadProperties(FOLDER+Constant.URI_SEPARATOR+key);
-                    ALL_MAPPING.put("key", languages);
+                    ALL_MAPPING.put(key.replaceAll(".properties",""), languages);
                 }
             }
         } catch (IOException e) {

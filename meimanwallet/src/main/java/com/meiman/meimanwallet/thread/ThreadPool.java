@@ -26,7 +26,7 @@ public class ThreadPool {
         threadTaskPool.setMaxPoolSize(10);
         // 设置队列容量
         threadTaskPool.setQueueCapacity(10);
-        // 设置线程活跃时间（秒）
+        // 设置线程活跃时间300秒
         threadTaskPool.setKeepAliveSeconds(300);
         // 设置默认线程名称
         threadTaskPool.setThreadNamePrefix("mmthread-");
