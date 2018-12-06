@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @Date 2018/11/27
  */
 @RestController
-@RequestMapping("/index")
+@RequestMapping("/api")
 public class IndexController {
 
     @Resource

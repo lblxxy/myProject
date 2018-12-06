@@ -4,10 +4,14 @@ import com.meiman.meimanwallet.constant.ErrorCodeMsg;
 import com.meiman.meimanwallet.dao.mapper.MmUserMapper;
 import com.meiman.meimanwallet.entity.MmUser;
 import com.meiman.meimanwallet.service.MmUserService;
+import com.meiman.meimanwallet.utils.IntegerUtil;
 import com.meiman.meimanwallet.utils.RpcClientResult;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author zeng_
@@ -38,5 +42,28 @@ public class MmUserServiceImpl implements MmUserService {
         RpcClientResult<MmUser> result = RpcClientResult.getSuccess();
         result.setData(mmUser);
         return result;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public RpcClientResult selectList(Integer pageNumber,Integer pageSize,Integer stu, Integer rank, Integer role, String name) {
+        if(IntegerUtil.isNaturalNumber(pageNumber)){
+            pageNumber = 1;
+        }
+        if(IntegerUtil.isNaturalNumber(pageSize)){
+            pageSize = 20;
+        }
+        List<MmUser> list = mmUserMapper.selectList((pageNumber-1)*pageSize,pageNumber*pageSize,stu,rank,role,name);
+        RpcClientResult result = RpcClientResult.getSuccess();
+        Map<String,Object> dataMap = new HashMap<>(2);
+        dataMap.put("list",list);
+        dataMap.put("count",selectListCount(stu,rank,role,name));
+        result.setData(dataMap);
+        return result;
+    }
+
+    @Override
+    public Integer selectListCount(Integer stu, Integer rank, Integer role, String name) {
+        return mmUserMapper.selectListCount(stu,rank,role,name);
     }
 }
