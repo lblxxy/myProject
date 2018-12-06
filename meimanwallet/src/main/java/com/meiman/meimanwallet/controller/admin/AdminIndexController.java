@@ -17,8 +17,11 @@ public class AdminIndexController {
     private MmUserService mmUserService;
 
     @RequestMapping("/index")
-    public String index(){
-        return "aaa";
+    public ModelAndView index(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("title","首页");
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 
     @RequestMapping("/login")
