@@ -28,6 +28,10 @@ spring:
         multipart:
             max-file-size: 3MB
             max-request-size: 3MB
+    thymeleaf:
+        cache: false
+        prefix: classpath:/templates/
+        encoding: utf-8
 mybatis:
     typeAliasesPackage: com.meiman.meimanwallet
     mapperLocations: classpath:mapper/*.xml

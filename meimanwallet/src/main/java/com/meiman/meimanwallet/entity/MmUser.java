@@ -14,6 +14,8 @@ public class MmUser {
 
     private Integer rank;
 
+    private Integer stu;
+
     public Integer getId() {
         return id;
     }
@@ -52,5 +54,13 @@ public class MmUser {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+    public Integer getStu() {
+        return stu;
+    }
+
+    public void setStu(Integer stu) {
+        this.stu = stu;
     }
 }
