@@ -1,6 +1,9 @@
 package com.meiman.meimanwallet.dao.mapper;
 
 import com.meiman.meimanwallet.entity.MmUser;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 用户
@@ -34,4 +37,26 @@ public interface MmUserMapper {
      * @return
      */
     int updateByPrimaryKey(MmUser record);
+
+    /**
+     * 分页查询用户信息
+     * @param start
+     * @param end
+     * @param stu
+     * @param rank
+     * @param role
+     * @param name
+     * @return
+     */
+    List<MmUser> selectList(@Param("start")Integer start, @Param("end")Integer end, @Param("stu")Integer stu, @Param("rank")Integer rank, @Param("role")Integer role, @Param("name")String name);
+
+    /**
+     * 查询总条数
+     * @param stu
+     * @param rank
+     * @param role
+     * @param name
+     * @return
+     */
+    Integer selectListCount(@Param("stu")Integer stu, @Param("rank")Integer rank, @Param("role")Integer role, @Param("name")String name);
 }

@@ -24,7 +24,7 @@ public class RequestCountFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        String ip = servletRequest.getRemoteHost();
+        /*String ip = servletRequest.getRemoteHost();
         int count = 0;
         try {
             count = RequestCounter.increment(ip);
@@ -36,7 +36,8 @@ public class RequestCountFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);
         }else{
             System.out.println("ip:"+ip+"访问超限");
-        }
+        }*/
+        filterChain.doFilter(servletRequest,servletResponse);
     }
 
     @Override

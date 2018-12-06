@@ -33,16 +33,16 @@ public class FileUploadController {
             return RpcClientResult.getFailed();
         }
         //当前的时间戳
-        long ctime = TimeService.currentTimeMillis();
+        long nowtime = TimeService.currentTimeMillis();
         //用当前时间的毫秒数加五位随机数字当作新的文件名
-        String fileName = ctime+ StringUtils.getRandomString(5)+originalFilename.substring(originalFilename.lastIndexOf("."));
+        String fileName = nowtime+ StringUtils.getRandomString(5)+originalFilename.substring(originalFilename.lastIndexOf("."));
         //获取配置的上传路径，同时获取时间戳的前五位，即代表一天，每天的图片分开存
-        String filePath = PropertiesUtils.readProperty("file.path") +LongUtils.div(ctime,100000000);
+        String filePath = PropertiesUtils.readProperty("file.path") +LongUtils.div(nowtime,100000000);
         File dest = new File(filePath +"/"+ fileName);
         //如果文件夹不存在，直接创建
         if(!dest.getParentFile().exists()){
-            boolean issuccess = dest.getParentFile().mkdirs();
-            if(!issuccess){
+            boolean success = dest.getParentFile().mkdirs();
+            if(!success){
                 //文件夹创建失败，提示系统错误
                 return RpcClientResult.getFailed();
             }
