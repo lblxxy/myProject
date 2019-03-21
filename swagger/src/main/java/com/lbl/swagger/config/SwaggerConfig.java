@@ -21,7 +21,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()
                 //Controller所在路径
-                .apis(RequestHandlerSelectors.basePackage("com.example.swagger2demo.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.lbl.swagger.controller"))
                 .paths(PathSelectors.any())
                 .build();
 
@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
     public ApiInfo apiInfo() {
         return  new ApiInfoBuilder()
-                .title("springboot结合swagger2构建Restful API")
+                .title("美漫卡劵 API")
                 .description("这是一个swagger2小型demo")
                 .termsOfServiceUrl("www.baidu.com")
                 .contact("bacyang")
