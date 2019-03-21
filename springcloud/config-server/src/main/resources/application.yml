@@ -4,10 +4,10 @@ spring:
       server:
         default-application-name: config-server
         git:
-          uri: https://gitee.com/lblxxy/springCloudDemo.git
-          search-paths: springcloud/config
+          uri: https://github.com/lblxxy/springCloud-configServer.git
+          search-paths: config
           username:
           password:
-      label: dev
+      label: master
 server:
-  port: 8888
+  port: 8768
