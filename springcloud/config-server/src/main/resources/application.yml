@@ -4,7 +4,7 @@ spring:
       server:
         default-application-name: config-server
         git:
-          uri: https://gitee.com/lblxxy/springCloudDemo.git
+          uri: https://gitee.com/lblxxy/springCloudDemo
           search-paths: springcloud/config
           username:
           password:
