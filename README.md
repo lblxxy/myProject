@@ -6,10 +6,6 @@ springCloudDemo
 =======
 # meiman_wallet
 
-#### 项目介绍
-美漫钱包
->>>>>>> Initial commit
-
 #### 软件架构
 软件架构说明
 
