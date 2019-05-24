@@ -1,0 +1,34 @@
+server:
+  port: 8108
+  servlet:
+    session:
+      timeout: 30M
+    context-path: /bl
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: bl
+  datasource:
+    name: bl
+    url: jdbc:mysql://127.0.0.1:3306/myproject?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: admin
+    # 使用druid数据源 这里用的阿里巴巴的，也需要依赖
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  http:
+      encoding:
+        charset: UTF-8
+        force: true
+        enabled: true
+#mybatis很重要，必须要加依赖加配置的
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.bl.myproject
+  mapper-locations: classpath:mapping/*.xml
