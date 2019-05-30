@@ -7,6 +7,7 @@
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="del" property="del" jdbcType="INTEGER" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -38,7 +39,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, sex, age, del
+    id, name, sex, age, del, pwd
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bl.myproject.entity.BlUserExample" >
     select
@@ -54,7 +55,7 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
-    <!--也需要手动 添加分页查询if-->
+    <!--分页需要手动添加的-->
     <if test="startRow != null and pageSize != null and pageSize != 0">
       limit #{startRow},#{pageSize}
     </if>
@@ -71,9 +72,9 @@
   </delete>
   <insert id="insert" parameterType="com.bl.myproject.entity.BlUser" >
     insert into bl_user (id, name, sex,
-      age, del)
+      age, del, pwd)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
-      #{age,jdbcType=INTEGER}, #{del,jdbcType=INTEGER})
+      #{age,jdbcType=INTEGER}, #{del,jdbcType=INTEGER}, #{pwd,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.bl.myproject.entity.BlUser" >
     insert into bl_user
@@ -93,6 +94,9 @@
       <if test="del != null" >
         del,
       </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -109,6 +113,9 @@
       </if>
       <if test="del != null" >
         #{del,jdbcType=INTEGER},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -133,6 +140,9 @@
       <if test="del != null" >
         del = #{del,jdbcType=INTEGER},
       </if>
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -141,12 +151,8 @@
     set name = #{name,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
-      del = #{del,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="delByStu">
-    update bl_user
-    set del = 2
+      del = #{del,jdbcType=INTEGER},
+      pwd = #{pwd,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

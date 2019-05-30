@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
  * 调接口响应返回，状态码，信息，数据
  * @author bl
  * @date 2019-5-24
+ * @AllArgsConstructor 全构造注解
+ * @NoArgsConstructor 无参构造注解
+ * @Data 包含了Get、Set，ToString、equals()、hashCode()、toString()
  */
-//全构造注解
 @AllArgsConstructor
-//无参构造注解
 @NoArgsConstructor
-//Get.Set,ToString,EqualsAndHashCode
 @Data
 public class ResponseResult<T> {
 
@@ -59,6 +59,17 @@ public class ResponseResult<T> {
         this.success=success;
         this.code=errorCode;
         this.msg=errorCodeMsg;
+    }
+
+    /**
+     * 组装成功的返回，没有数据
+     * @param success true
+     * @param successCode 请求成功的枚举信息
+     */
+    public void setSuccess(boolean success,ErrorCode successCode){
+        this.success=success;
+        this.code=successCode.getCode();
+        this.msg=successCode.getMsg();
     }
     /**
      *请求成功返回

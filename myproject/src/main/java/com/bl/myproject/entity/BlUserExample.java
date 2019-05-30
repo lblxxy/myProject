@@ -3,6 +3,10 @@ package com.bl.myproject.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author bl
+ * @date 2019/5/24
+ */
 public class BlUserExample {
     protected String orderByClause;
 
@@ -421,6 +425,75 @@ public class BlUserExample {
 
         public Criteria andDelNotBetween(Integer value1, Integer value2) {
             addCriterion("del not between", value1, value2, "del");
+            return (Criteria) this;
+        }
+        public Criteria andPwdIsNull() {
+            addCriterion("pwd is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdIsNotNull() {
+            addCriterion("pwd is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdEqualTo(String value) {
+            addCriterion("pwd =", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdNotEqualTo(String value) {
+            addCriterion("pwd <>", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdGreaterThan(String value) {
+            addCriterion("pwd >", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdGreaterThanOrEqualTo(String value) {
+            addCriterion("pwd >=", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdLessThan(String value) {
+            addCriterion("pwd <", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdLessThanOrEqualTo(String value) {
+            addCriterion("pwd <=", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdLike(String value) {
+            addCriterion("pwd like", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdNotLike(String value) {
+            addCriterion("pwd not like", value, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdIn(List<String> values) {
+            addCriterion("pwd in", values, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdNotIn(List<String> values) {
+            addCriterion("pwd not in", values, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdBetween(String value1, String value2) {
+            addCriterion("pwd between", value1, value2, "pwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdNotBetween(String value1, String value2) {
+            addCriterion("pwd not between", value1, value2, "pwd");
             return (Criteria) this;
         }
     }
