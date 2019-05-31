@@ -3,16 +3,24 @@ package com.bl.myproject;
 import com.bl.myproject.constant.ErrorCode;
 import com.bl.myproject.entity.BlUser;
 import com.bl.myproject.exception.BlException;
-import com.bl.myproject.util.MD5Util;
-import com.bl.myproject.util.PropertiesUtil;
-import com.bl.myproject.util.RedisUtil;
-import com.bl.myproject.util.ResponseResult;
+import com.bl.myproject.util.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,6 +56,30 @@ public class MyprojectApplicationTests {
         Object o = RedisUtil.getInstance().get("1", "2", "13");
         System.out.println(set);
         System.out.println(o.toString());*/
+
+/*      //java 8 很多有用的时间类
+        System.out.println(TimeUtil.currentDate());
+          */
+/*        LocalDate  today = LocalDate.now();
+        LocalDate someDate = LocalDate.of(2019,3,3);
+        Period between = Period.between( someDate,today);
+        int months = between.getMonths();
+        int days = between.getDays();
+        DateTimeFormatter formatters = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
+        String text = today.format(formatters);
+        System.out.println(text);*/
+/*        List<BlUser> list = new ArrayList<>();
+        list.add(new BlUser("jack", 20));
+        list.add(new BlUser("mike", 25));
+        list.add(new BlUser("tom", 30));
+        List<String> newlist = list.stream().map(BlUser::getName).collect(toList());
+        System.out.println(newlist);*/
+        List<String> list = new ArrayList<>();
+        list.add("aaa bbb ccc");
+        list.add("ddd eee fff");
+        list.add("ggg hhh iii");
+        list = list.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(toList());
+        System.out.println(list);
     }
 
    /* public  ResponseResult divide(int a, int b) {

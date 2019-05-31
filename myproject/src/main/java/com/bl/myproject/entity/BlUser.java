@@ -22,4 +22,9 @@ public class BlUser implements Serializable {
 
     private String pwd;
 
+    public BlUser(String name,Integer age){
+        this.name = name;
+        this.age = age;
+    }
+
 }

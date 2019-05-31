@@ -57,4 +57,8 @@ public interface Constant {
      * 登录类型
      */
     String USER_LOGIN = "login";
+    /**
+     * 未登录用户跳到登录界面
+     */
+    String TO_LOGIN = "/admin/toLogin";
 }

@@ -1,5 +1,6 @@
 package com.bl.myproject.util;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 /**
@@ -32,6 +33,13 @@ public class TimeUtil {
     public static Integer currentMonth(){
         Calendar calendar = Calendar.getInstance();
         return calendar.get(Calendar.MONTH)+1;
+    }
+    /**
+     * 获取当前日期
+     * @return 当前月份
+     */
+    public static LocalDate currentDate(){
+        return LocalDate.now();
     }
 
     /**

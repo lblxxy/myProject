@@ -1,0 +1,17 @@
+1.分析设计建数据库、
+2.建springboot项目
+3.根据数据库，和mybatis帮助工具，生成所需的，mapper，mapping，entity，
+4.写baseService,baseMapper,到具体的对象的实现类
+5.在实现类时就会涉及，部分的工具类，组装返回统一结果集对象类的工具ResponseResult, stringUtil，IntegerUtil等
+6.其中的ResponseResult,又比较重要，需要建构造，设置一些方法等。
+7.有了结果组装，同时也要有一些常量组合，比如系统返回错误码ErrorCode可以用枚举列，普通常量EntityConstatnt类，普通常量接口Constant等
+8.将实现类实现，
+9.为了便于逻辑错误时检查：你可以选择抛出自定义异常，也可以选择打印到日志、控制台，写个系统的自定义异常，注:springboot里好像只能继承RuntimeException，做做测试如a/b b=0时抛出异常
+10.写请求接口controller了，写完测试一下，顾错抛抛异常
+11.为了规范接口，和配合读取，使用，加了swagger，导包，写swaggerConfig配置，文件；注：@Configuration//加上这个swagger才能显示出来
+@EnableSwagger2
+12.写一个用户登录的功能测试，
+13.写着写着，突然发现，需要有密码加密，登录需要存入缓存，嘿嘿，这里又是两个基本通用工具，搞好就一劳永逸。。。。干巴得
+14.加密很简单。分分钟解决，至于redis缓存，用了jedis，写了个工具类，我擦，先写基本的get/set/deletr自定义get/set/,然后是五种存储类型(是真的多)。。然而半天就过去了。。。简单测试下通过！
+15.继续完成登录接口，写个简单登录界面，测试登录，登录解决，缓存存ok，后面差不多就是根据需要搬砖咯？
+16.又写了几个工具类，当前时间戳获取，Long计算类，文件上传的接口fileUploadController，
